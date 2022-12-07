@@ -20,8 +20,9 @@ resource "aws_instance" "os2" {
   ami                         = data.aws_ami.AmazonAmiName.id
   instance_type               = "t2.micro"
   key_name                    = "DevOpsKey"
-  subnet_id                   = aws_subnet.public.id
+  subnet_id                   = aws_subnet.private.id
   associate_public_ip_address = false
+  
   tags = {
     "Name" = "MyNewOs2"
   }

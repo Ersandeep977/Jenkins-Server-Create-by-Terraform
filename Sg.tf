@@ -4,7 +4,7 @@ resource "aws_security_group" "Main_server_SG" {
   description = "Allow all inbound traffic"
   vpc_id      = aws_vpc.MyVpc.id
   dynamic "ingress" {
-    for_each = [22, 80, 8080, 444, 21]
+    for_each = [22, 80, 8080,]
     iterator = Port
     content {
       from_port   = Port.value
@@ -29,8 +29,7 @@ resource "aws_security_group" "allow_all" {
   name        = "allow_all"
   description = "Allow all inbound traffic"
   vpc_id      = aws_vpc.MyVpc.id
-
-
+  
   ingress {
     from_port   = 0
     to_port     = 0
